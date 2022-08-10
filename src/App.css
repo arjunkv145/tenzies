@@ -1,38 +1,196 @@
-.App {
+.tenzies-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.25em;
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.instructions {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1em;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dice-container {
+  display: grid;
+  grid-template: auto auto / repeat(5, 1fr);
+  gap: 20px;
+  margin-top: 1.5em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.die-face {
+  height: 50px;
+  width: 50px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  cursor: pointer;
+}
+
+.roll-dice_new-game {
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: .6em 2.5em;
+  margin-top: 1em;
+  border: none;
+  border-radius: 6px;
+  background-color: #5035FF;
   color: white;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.roll-dice_new-game:focus {
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.roll-dice_new-game:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+.score-container {
+  width: 100%;
+  padding: 0 1em;
+  display: grid;
+  grid-template: auto auto / auto auto;
+  grid-gap: .8em;
+  margin-top: 2em;
+}
+
+.best-time, .current-time, .num-of-rolls {
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.bold { font-weight: 800; }
+
+.reset-best-time-btn {
+  font-family: inherit;
+  font-size: .8rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  background-color: #5035FF;
+  color: white;
+  cursor: pointer;
+  padding: .4em 1.5em;
+  margin-left: auto;
+}
+
+.reset-best-time-btn:focus {
+  outline: none;
+}
+
+.reset-best-time-btn:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+.current-time {
+  text-align: right;
+}
+
+@media  screen and ( max-width: 425px ) {
+  .title {
+    font-size: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .instructions {
+    font-size: .9rem;
+  }
+
+  .roll-dice_new-game {
+    font-size: 1rem;
+    padding: .6em 2.5em;
+  }
+
+  .dice-container {
+    gap: 15px;
+  }
+
+  .die-face {
+    height: 35px;
+    width: 35px;
+    border-radius: 3px;
+  }
+
+  .best-time, .current-time, .num-of-rolls {
+    font-size: .75rem;
+  }
+
+  .reset-best-time-btn {
+    font-size: .7rem;
+  }
+}
+@media  screen and ( max-width: 350px ) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .instructions {
+    font-size: .7rem;
+  }
+
+  .roll-dice_new-game {
+    font-size: .8rem;
+    padding: .6em 2.5em;
+  }
+
+  .dice-container {
+    gap: 10px;
+  }
+
+  .die-face {
+    height: 30px;
+    width: 30px;
+    border-radius: 3px;
+  }
+
+  .score-container {
+    grid-template: repeat(4, auto) / auto;
+  }
+
+  .best-time, .current-time, .num-of-rolls {
+    text-align: center;
+  }
+
+  .reset-best-time-btn {
+    margin: 0;
+  }
+}
+
+@media  screen and ( max-width: 260px ) {
+  .dice-container {
+    grid-template: repeat(4, auto) / repeat(3, 1fr);
+  }
+
+  .last-die {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin: 0 auto;
+  }
+}
+
+@media  screen and ( max-width: 200px ) {
+  .dice-container {
+    grid-template: repeat(5, auto) / repeat(2, 1fr);
+  }
+
+  .last-die {
+    margin: 0;
+    grid-column-start: 2;
+    grid-column-end: 3;
   }
 }
